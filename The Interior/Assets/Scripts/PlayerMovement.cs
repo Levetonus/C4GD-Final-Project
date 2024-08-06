@@ -13,6 +13,10 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
     public float jumpHeight = 3f;
+
+    public AudioSource source;
+    public bool audioPlaying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +33,20 @@ public class PlayerMovement : MonoBehaviour
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        if((x != 0 || z != 0) && isGrounded)
+        {
+            if(!audioPlaying)
+            {
+                audioPlaying = true;
+                source.Play();
+            }
+        }
+        else
+        {
+            audioPlaying = false;
+            source.Stop();
+        }
 
         Vector3 move = transform.right * x + transform.forward * z;
 
