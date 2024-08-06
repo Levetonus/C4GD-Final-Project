@@ -26,7 +26,7 @@ public class PickupScript : MonoBehaviour
             if (gameObject.CompareTag("keyWhite2A")){
                 hasKeyWhite2A = true;
                 inventory[0].SetActive(true);
-                inventory[0].transform.position.x = inventory[0].transform.position.x + currentInventorySpot*45
+                //inventory[0].transform.position.x = inventory[0].transform.position.x + currentInventorySpot*45
                 currentInventorySpot += 1;
             }
             else if (gameObject.CompareTag("keyWhite2B")){
