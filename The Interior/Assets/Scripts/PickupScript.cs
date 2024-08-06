@@ -15,6 +15,8 @@ public class PickupScript : MonoBehaviour
     public bool hasCircle = false;
     public bool hasKeyWhite4 = false;
     public float equipped;
+    public Texture2D hoveringCursorTexture;
+    public Texture2D cursorTexture;
 
     public List<GameObject> inventory;
     // Start is called before the first frame update
@@ -27,7 +29,7 @@ public class PickupScript : MonoBehaviour
             if (gameObject.CompareTag("keyWhite2A")){
                 hasKeyWhite2A = true;
                 inventory[0].SetActive(true);
-                //inventory[0].transform.position.x = inventory[0].transform.position.x + currentInventorySpot*45
+                inventory[0].transform.position = new Vector3(inventory[0].transform.position.x + (currentInventorySpot*45),0,0);
                 currentInventorySpot += 1;
             }
             else if (gameObject.CompareTag("keyWhite2B")){
@@ -48,10 +50,18 @@ public class PickupScript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    void OnMouseOver(){
+        Cursor.SetCursor(hoveringCursorTexture, Vector2.zero, CursorMode.Auto); 
+    }
+    void OnMouseExit(){
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto); 
+    }
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && jumpsRemaining > 0)
+        if(Input.GetKeyDown("1")){
+            equipped = 1;
+        }
 
     }
 }
