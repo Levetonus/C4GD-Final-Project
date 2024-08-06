@@ -14,6 +14,7 @@ public class PickupScript : MonoBehaviour
     public bool hasTriangle = false;
     public bool hasCircle = false;
     public bool hasKeyWhite4 = false;
+    public float equipped;
 
     public List<GameObject> inventory;
     // Start is called before the first frame update
@@ -50,6 +51,7 @@ public class PickupScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space) && jumpsRemaining > 0)
+
     }
 }
