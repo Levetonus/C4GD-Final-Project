@@ -8,8 +8,8 @@ public class MouseLook : MonoBehaviour
 {
     public float sensitivity = 100f;
     public Transform playerBody;
-    public Transform playerEyes;
     float xRotation = 0f;
+    public Texture2D texture;
 
     // Start is called before the first frame update
     void Start()
@@ -31,22 +31,5 @@ public class MouseLook : MonoBehaviour
 
         // Rotate the player's body horizontally
         playerBody.Rotate(Vector3.up * mouseX);
-
-        Vector3 fwd = transform.TransformDirection(Vector3.forward);
-
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 1 << 7))
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-            print("There is something in front of the object!");
-
-            // OBJECT IS INTERACTABLE
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-
-            // OBJECT IS NOT INTERACTABLE
-        }
     }
 }
