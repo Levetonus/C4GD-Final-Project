@@ -4,46 +4,62 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public bool decontamEvent = false;
-    public bool waiting = false;
+    public static AudioManager instance;
+
+    private bool runChance = true;
     public AudioSource source1;
     public AudioSource source2;
+
     public AudioClip dAlarm;
     public AudioClip dGas;
     public AudioClip bodyDrop;
     public AudioClip knocking;
-    private bool person;
+    private bool person = false;
+
+    public AudioClip lights;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!decontamEvent && !waiting)
+        if(runChance)
         {
             if(Random.Range(0f, 1f) < 0.25)
             {
-                decontamEvent = true;
+                runChance = false;
                 source1.clip = dAlarm;
                 source1.Play();
                 StartCoroutine(D1());
             }
             else
             {
-                waiting = true;
+                runChance = false;
                 StartCoroutine(gasEventCooldown());
             }
         }
     }
+    public void LightsOff()
+    {
+        source1.clip = lights;
+        source1.Play();
+    }
+
+    public void LightsOn()
+    {
+        source1.clip = lights;
+        source1.Play();
+    }
+
 
     IEnumerator gasEventCooldown()
     {
         yield return new WaitForSeconds(10f);
-        waiting = false;
+        runChance = true;
     }
 
     IEnumerator D1()
@@ -85,7 +101,7 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSeconds(35f);
         source1.Stop();
-        decontamEvent = false;
+        runChance = true;
         person = false;
     }
 }
