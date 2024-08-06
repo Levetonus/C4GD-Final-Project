@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip dAlarm;
     public AudioClip dGas;
     public AudioClip bodyDrop;
+    public AudioClip knocking;
+    private bool person;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +30,7 @@ public class AudioManager : MonoBehaviour
                 decontamEvent = true;
                 source1.clip = dAlarm;
                 source1.Play();
-                StartCoroutine(alarm());
+                StartCoroutine(D1());
             }
             else
             {
@@ -44,30 +46,46 @@ public class AudioManager : MonoBehaviour
         waiting = false;
     }
 
-    IEnumerator alarm()
+    IEnumerator D1()
     {
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(2f);
+
+        if(Random.Range(0f, 1f) < 0.5)
+        {
+            person = true;
+            source2.clip = knocking;
+            source2.Play();
+        }
+        
+        StartCoroutine(D2());
+    }
+
+    IEnumerator D2()
+    {
+        yield return new WaitForSeconds(10f);
         source1.clip = dGas;
         source1.Play();
 
-        StartCoroutine(body());
-    }
-
-    IEnumerator body()
-    {
-        yield return new WaitForSeconds(5f);
-        if (Random.Range(0f, 1f) < 0.5)
+        if (person)
         {
-            source2.clip = bodyDrop;
-            source2.Play();
+            StartCoroutine(BodyDrop());
+            
         }
-        StartCoroutine(gas());
+        StartCoroutine(D3());
     }
 
-    IEnumerator gas()
+    IEnumerator BodyDrop()
     {
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(3f);
+        source2.clip = bodyDrop;
+        source2.Play();
+    }
+
+    IEnumerator D3()
+    {
+        yield return new WaitForSeconds(35f);
         source1.Stop();
         decontamEvent = false;
+        person = false;
     }
 }
