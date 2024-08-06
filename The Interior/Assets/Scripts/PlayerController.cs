@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 2f;
-    private float horizontalInput;
-    private float verticalInput;
-
+    public CharacterController controller;
+    public float speed = 12f;
+    public float gravity = -9.81f;
+    Vector3 velocity;
+    public Transform groundCheck;
+    public float groundDistance = 0.4f;
+    public LayerMask groundMask;
+    bool isGrounded;
+    public float jumpHeight = 3f;
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * moveSpeed * Time.deltaTime);
-        verticalInput = Input.GetAxisRaw("Vertical");
-        transform.Translate(Vector3.forward * verticalInput * moveSpeed * Time.deltaTime);
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move*speed*Time.deltaTime);
+
+        controller.Move(velocity * Time.deltaTime);
     }
 }
