@@ -1812,6 +1812,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: walldoor
       objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 573394b08e159d64e9be35df1b8128c1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 573394b08e159d64e9be35df1b8128c1, type: 3}
 --- !u!4 &2111296710 stripped
