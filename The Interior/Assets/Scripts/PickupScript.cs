@@ -22,26 +22,30 @@ public class PickupScript : MonoBehaviour
         instance = this;  
     }
     private void OnMouseDown(){
-        if (gameObject.CompareTag("keyWhite2A")){
-            hasKeyWhite2A = true;
-            inventory[0].SetActive(true);;
+        if(currentInventorySpot < 5){
+            if (gameObject.CompareTag("keyWhite2A")){
+                hasKeyWhite2A = true;
+                inventory[0].SetActive(true);
+                inventory[0].transform.position.x = inventory[0].transform.position.x + currentInventorySpot*45
+                currentInventorySpot += 1;
+            }
+            else if (gameObject.CompareTag("keyWhite2B")){
+                hasKeyWhite2B = true;
+            }
+            else if (gameObject.CompareTag("square")){
+                hasSquare = true;
+            }
+            else if (gameObject.CompareTag("triangle")){
+                hasTriangle = true;
+            }
+            else if (gameObject.CompareTag("circle")){
+                hasCircle = true;
+            }
+            else if (gameObject.CompareTag("keyWhite4")){
+                hasKeyWhite4 = true;
+            }
+            Destroy(gameObject);
         }
-        else if (gameObject.CompareTag("keyWhite2B")){
-            hasKeyWhite2B = true;
-        }
-        else if (gameObject.CompareTag("square")){
-            hasSquare = true;
-        }
-        else if (gameObject.CompareTag("triangle")){
-            hasTriangle = true;
-        }
-        else if (gameObject.CompareTag("circle")){
-            hasCircle = true;
-        }
-        else if (gameObject.CompareTag("keyWhite4")){
-            hasKeyWhite4 = true;
-        }
-        Destroy(gameObject);
     }
     // Update is called once per frame
     void Update()
