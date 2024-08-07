@@ -23,7 +23,7 @@ public class PickupScript : MonoBehaviour
     public List<GameObject> inventory;
     void Start()
     {
-        instance = this;  
+        instance = this;
     }
 
     private void OnMouseDown(){
