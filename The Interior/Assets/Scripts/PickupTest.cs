@@ -14,14 +14,12 @@ public class PickupTest : MonoBehaviour
 
     public GameObject cam;
     public RaycastHit hit;
-    public int currentInventorySpot = 0;
     public bool hasKey1 = false;
     public bool hasKey2 = false;
     public bool hasSquare = false;
     public bool hasTriangle = false;
     public bool hasCircle = false;
-    public bool hasKeyWhite4 = false;
-    public int equipped;
+    public int equipped = 0;
     public List<GameObject> inventory;
     public List<UnityEngine.Sprite> images;
 
@@ -69,7 +67,7 @@ public class PickupTest : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && hit.collider != null && currentInventorySpot < 5)
+        if (Input.GetMouseButtonDown(0) && hit.collider != null)
         {
             //add ui raw images with picutres of the other pickupable objects and move them to the inventory list
             //give the pickupable objects the following tags
@@ -77,48 +75,107 @@ public class PickupTest : MonoBehaviour
             //is placing the images to pretty much random positions, which is why I added the 204 and 114.75f, but it's still doing it
 
             GameObject gameObject = hit.collider.gameObject;
+            Image current = inventory[equipped].GetComponent<Image>();
 
             if (gameObject.CompareTag("Key1"))
             {
                 hasKey1 = true;
-                inventory[currentInventorySpot].GetComponent<Image>().sprite = images[0];
-                currentInventorySpot += 1;
-                Destroy(gameObject);
+                if(current.sprite == defaultImage)
+                {
+                    current.sprite = images[0];
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    for(int i = 0; i < 4; i++)
+                    {
+                        if(inventory[i].GetComponent<Image>().sprite == defaultImage)
+                        {
+                            inventory[i].GetComponent<Image>().sprite = images[0];
+                            Destroy(gameObject);
+                        }
+                    }
+                }
             }
             else if (gameObject.CompareTag("Key2"))
             {
                 hasKey2 = true;
-                inventory[currentInventorySpot].GetComponent<Image>().sprite = images[1];
-                currentInventorySpot += 1;
-                Destroy(gameObject);
+                if (current.sprite == defaultImage)
+                {
+                    current.sprite = images[1];
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (inventory[i].GetComponent<Image>().sprite == defaultImage)
+                        {
+                            inventory[i].GetComponent<Image>().sprite = images[1];
+                            Destroy(gameObject);
+                        }
+                    }
+                }
             }
-            else if (gameObject.CompareTag("square"))
+            else if (gameObject.CompareTag("Square"))
             {
                 hasSquare = true;
-
-                currentInventorySpot += 1;
-                Destroy(gameObject);
+                if (current.sprite == defaultImage)
+                {
+                    current.sprite = images[2];
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (inventory[i].GetComponent<Image>().sprite == defaultImage)
+                        {
+                            inventory[i].GetComponent<Image>().sprite = images[2];
+                            Destroy(gameObject);
+                        }
+                    }
+                }
             }
-            else if (gameObject.CompareTag("triangle"))
-            {
-                hasTriangle = true;
-
-                currentInventorySpot += 1;
-                Destroy(gameObject);
-            }
-            else if (gameObject.CompareTag("circle"))
+            else if (gameObject.CompareTag("Circle"))
             {
                 hasCircle = true;
-
-                currentInventorySpot += 1;
-                Destroy(gameObject);
+                if (current.sprite == defaultImage)
+                {
+                    current.sprite = images[4];
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (inventory[i].GetComponent<Image>().sprite == defaultImage)
+                        {
+                            inventory[i].GetComponent<Image>().sprite = images[4];
+                            Destroy(gameObject);
+                        }
+                    }
+                }
             }
-            else if (gameObject.CompareTag("keyWhite4"))
+            else if (gameObject.CompareTag("Triangle"))
             {
-                hasKeyWhite4 = true;
-
-                currentInventorySpot += 1;
-                Destroy(gameObject);
+                hasTriangle = true;
+                if (current.sprite == defaultImage)
+                {
+                    current.sprite = images[3];
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    for (int i = 0; i < 4; i++)
+                    {
+                        if (inventory[i].GetComponent<Image>().sprite == defaultImage)
+                        {
+                            inventory[i].GetComponent<Image>().sprite = images[3];
+                            Destroy(gameObject);
+                        }
+                    }
+                }
             }
             else if (gameObject.CompareTag("Keyhole1"))
             {
@@ -143,6 +200,36 @@ public class PickupTest : MonoBehaviour
                 {
                     SceneManager.LoadScene(2);
                 }
+            }
+            else if (gameObject.CompareTag("SquareHole"))
+            {
+                if (hasSquare && inventory[equipped].GetComponent<Image>().sprite == images[2])
+                {
+                    inventory[equipped].GetComponent<Image>().sprite = defaultImage;
+                    DataPersist.instance.squareDone = true;
+                    Destroy(gameObject);
+                }
+                DataPersist.instance.Check3Done();
+            }
+            else if (gameObject.CompareTag("CircleHole"))
+            {
+                if (hasCircle && inventory[equipped].GetComponent<Image>().sprite == images[3])
+                {
+                    inventory[equipped].GetComponent<Image>().sprite = defaultImage;
+                    DataPersist.instance.circleDone = true;
+                    Destroy(gameObject);
+                }
+                DataPersist.instance.Check3Done();
+            }
+            else if (gameObject.CompareTag("TriHole"))
+            {
+                if (hasTriangle && inventory[equipped].GetComponent<Image>().sprite == images[4])
+                {
+                    inventory[equipped].GetComponent<Image>().sprite = defaultImage;
+                    DataPersist.instance.triDone = true;
+                    Destroy(gameObject);
+                }
+                DataPersist.instance.Check3Done();
             }
             else if (gameObject.CompareTag("Back"))
             {

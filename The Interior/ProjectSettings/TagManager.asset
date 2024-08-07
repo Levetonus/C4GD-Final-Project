@@ -12,6 +12,7 @@ TagManager:
   - SquareHole
   - TriHole
   - CircleHole
+  - Square
   layers:
   - Default
   - TransparentFX

@@ -1285,6 +1285,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   access2A: 0
   access2B: 0
+  squareDone: 0
+  circleDone: 0
+  triDone: 0
 --- !u!1 &663090008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1433,13 +1436,11 @@ MonoBehaviour:
   unselected: {fileID: 226596635}
   selected: {fileID: 2051991556}
   cam: {fileID: 2252775}
-  currentInventorySpot: 0
   hasKey1: 0
   hasKey2: 0
   hasSquare: 0
   hasTriangle: 0
   hasCircle: 0
-  hasKeyWhite4: 0
   equipped: 0
   inventory:
   - {fileID: 595196771}
@@ -1450,6 +1451,9 @@ MonoBehaviour:
   images:
   - {fileID: 21300000, guid: 7844dd01b6ce1fa4ab1ebd3286b40fa2, type: 3}
   - {fileID: 21300000, guid: 8bd34a53f729433459d8919e1371b1f3, type: 3}
+  - {fileID: 21300000, guid: c0938578db37fa54eb110e6c7bcbba72, type: 3}
+  - {fileID: 21300000, guid: 613cc2f3489f0dc4a99f405921af0d80, type: 3}
+  - {fileID: 21300000, guid: e01d5ca1fc10a8549b4421ca9f0d4598, type: 3}
   defaultImage: {fileID: 0}
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &807643928
