@@ -15,27 +15,23 @@ public class RoomSwitch : MonoBehaviour
         instance = this;
     }
 
-    private IEnumerator SwitchCooldown()
+    private IEnumerator SwitchCooldown(Vector3 tp)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+        transform.position = tp;
+        PlayerMovement.instance.active = true;
     }
 
     public void ToRoom1()
     {
         PlayerMovement.instance.active = false;
-        StartCoroutine(SwitchCooldown());
-        transform.position = r1spawn.transform.position;
-        PlayerMovement.instance.active = true;
-        transform.position = r1spawn.transform.position;
+        StartCoroutine(SwitchCooldown(r1spawn.transform.position));
     }
 
     public void ToRoom2A()
     {
         PlayerMovement.instance.active = false;
-        StartCoroutine(SwitchCooldown());
-        transform.position = r2Aspawn.transform.position;
-        PlayerMovement.instance.active = true;
-        transform.position = r2Aspawn.transform.position;
+        StartCoroutine(SwitchCooldown(r2Aspawn.transform.position));
     }
 
     public void ToRoom2B()
