@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PickupTest : MonoBehaviour
@@ -124,8 +125,16 @@ public class PickupTest : MonoBehaviour
                 if(hasKey1 && inventory[equipped].GetComponent<Image>().sprite == images[0])
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
-                    print("PROCEED TO NEXT LEVEL");
+                    DataPersist.instance.room1Complete = true;
                 }
+                if(DataPersist.instance.room1Complete)
+                {
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                }
+            }
+            else if (gameObject.CompareTag("Back"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
             }
         }
     }

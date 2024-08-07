@@ -662,6 +662,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 322794101}
   m_CullTransparentMesh: 1
+--- !u!1 &323691791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 323691793}
+  - component: {fileID: 323691792}
+  m_Layer: 0
+  m_Name: Data Persistance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &323691792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323691791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5b3d9c2c022024d8de9c16f888481e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  room1Complete: 0
+  room2AComplete: 0
+  room2BComplete: 0
+--- !u!4 &323691793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 323691791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.698925, y: 2.143335, z: -4.3433657}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &327859269
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,6 +1411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: 0
   lightO: {fileID: 998548110}
+  key1: {fileID: 1189363194}
 --- !u!114 &729999928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,7 +1444,8 @@ MonoBehaviour:
   images:
   - {fileID: 21300000, guid: 7844dd01b6ce1fa4ab1ebd3286b40fa2, type: 3}
   - {fileID: 21300000, guid: 8bd34a53f729433459d8919e1371b1f3, type: 3}
-  defaulted: {fileID: 0}
+  defaultImage: {fileID: 0}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &807643928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,6 +2536,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 524cef9aea147c94b9423c5261aa3d21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 524cef9aea147c94b9423c5261aa3d21,
         type: 3}

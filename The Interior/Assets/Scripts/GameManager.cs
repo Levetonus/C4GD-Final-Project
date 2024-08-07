@@ -1,17 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private bool runChance = true;
     public bool gameEvent = false;
     public GameObject lightO;
+    public GameObject key1;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(SceneManager.GetActiveScene().buildIndex == 0 && !DataPersist.instance.room1Complete)
+        {
+            key1.SetActive(true);
+        }
     }
 
     // Update is called once per frame
