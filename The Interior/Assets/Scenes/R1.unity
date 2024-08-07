@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2252775 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3315791128024285809, guid: 746012c24c4a4014faf735731507a747,
+    type: 3}
+  m_PrefabInstance: {fileID: 3315791128857389280}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &112406363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 729999926}
   - component: {fileID: 729999927}
+  - component: {fileID: 729999928}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -1357,6 +1364,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameEvent: 0
   lightO: {fileID: 998548110}
+--- !u!114 &729999928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729999925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0843c641f41291546a0fe22a95d54ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unselected: {fileID: 226596635}
+  selected: {fileID: 2051991556}
+  cam: {fileID: 2252775}
+  currentInventorySpot: 0
+  hasKeyWhite2A: 0
+  hasKeyWhite2B: 0
+  hasSquare: 0
+  hasTriangle: 0
+  hasCircle: 0
+  hasKeyWhite4: 0
+  equipped: 0
+  inventory:
+  - {fileID: 595196771}
+  - {fileID: 1700203288}
+  - {fileID: 2022187390}
+  - {fileID: 322794101}
+  - {fileID: 327859269}
+  images:
+  - {fileID: 21300000, guid: 7844dd01b6ce1fa4ab1ebd3286b40fa2, type: 3}
+  - {fileID: 21300000, guid: 8bd34a53f729433459d8919e1371b1f3, type: 3}
 --- !u!1 &807643928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,7 +2490,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 524cef9aea147c94b9423c5261aa3d21,
         type: 3}
       propertyPath: m_TagString
-      value: Pickup
+      value: keyWhite2A
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 524cef9aea147c94b9423c5261aa3d21, type: 3}
@@ -2475,29 +2514,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 524cef9aea147c94b9423c5261aa3d21, type: 3}
---- !u!114 &1189363201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1189363194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fa46873d50444fb99c887e8ed36ff9d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentInventorySpot: 0
-  hasKeyWhite2A: 0
-  hasKeyWhite2B: 0
-  hasSquare: 0
-  hasTriangle: 0
-  hasCircle: 0
-  hasKeyWhite4: 0
-  equipped: 0
-  hoveringCursorTexture: {fileID: 0}
-  cursorTexture: {fileID: 0}
-  inventory: []
 --- !u!1 &1191637029
 GameObject:
   m_ObjectHideFlags: 0
@@ -3801,6 +3817,53 @@ PrefabInstance:
       propertyPath: unselected
       value: 
       objectReference: {fileID: 226596635}
+    - target: {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747,
+        type: 3}
+      propertyPath: images.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747,
+        type: 3}
+      propertyPath: images.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7844dd01b6ce1fa4ab1ebd3286b40fa2,
+        type: 3}
+    - target: {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747,
+        type: 3}
+      propertyPath: images.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 8bd34a53f729433459d8919e1371b1f3,
+        type: 3}
+    - target: {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747,
+        type: 3}
+      propertyPath: inventory.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747,
+        type: 3}
+      propertyPath: inventory.Array.data[0]
+      value: 
+      objectReference: {fileID: 595196771}
+    - target: {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747,
+        type: 3}
+      propertyPath: inventory.Array.data[1]
+      value: 
+      objectReference: {fileID: 1700203288}
+    - target: {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747,
+        type: 3}
+      propertyPath: inventory.Array.data[2]
+      value: 
+      objectReference: {fileID: 2022187390}
+    - target: {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747,
+        type: 3}
+      propertyPath: inventory.Array.data[3]
+      value: 
+      objectReference: {fileID: 322794101}
+    - target: {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747,
+        type: 3}
+      propertyPath: inventory.Array.data[4]
+      value: 
+      objectReference: {fileID: 327859269}
     - target: {fileID: 3315791128518155752, guid: 746012c24c4a4014faf735731507a747,
         type: 3}
       propertyPath: m_Name
@@ -3861,7 +3924,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3315791128024285815, guid: 746012c24c4a4014faf735731507a747, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 746012c24c4a4014faf735731507a747, type: 3}
 --- !u!1 &4802194344575900211
 GameObject:
