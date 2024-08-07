@@ -1,17 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private bool runChance = true;
     public bool gameEvent = false;
     public GameObject lightO;
+    public GameObject key1;
+    public GameObject key2;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(SceneManager.GetActiveScene().buildIndex == 0 && !DataPersist.instance.access2A)
+        {
+            key1.SetActive(true);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 0 && !DataPersist.instance.access2B)
+        {
+            key2.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -19,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
         if(runChance)
         {
-            if(Random.Range(0f, 1f) < 1)
+            if(Random.Range(0f, 1f) < 0.2f)
             {
                 runChance = false;
                 gameEvent = true;
