@@ -125,16 +125,29 @@ public class PickupTest : MonoBehaviour
                 if(hasKey1 && inventory[equipped].GetComponent<Image>().sprite == images[0])
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
-                    DataPersist.instance.room1Complete = true;
+                    DataPersist.instance.access2A = true;
                 }
-                if(DataPersist.instance.room1Complete)
+                if(DataPersist.instance.access2A)
                 {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    SceneManager.LoadScene(1);
+                }
+            }
+            else if (gameObject.CompareTag("Keyhole2"))
+            {
+                if (hasKey2 && inventory[equipped].GetComponent<Image>().sprite == images[0])
+                {
+                    inventory[equipped].GetComponent<Image>().sprite = defaultImage;
+                    DataPersist.instance.access2B = true;
+                }
+                if (DataPersist.instance.access2B)
+                {
+                    //SceneManager.LoadScene(2);
+                    print("ROOM 2B");
                 }
             }
             else if (gameObject.CompareTag("Back"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+                SceneManager.LoadScene(0);
             }
         }
     }

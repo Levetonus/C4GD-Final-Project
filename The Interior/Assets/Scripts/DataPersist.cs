@@ -6,9 +6,8 @@ public class DataPersist : MonoBehaviour
 {
     public static DataPersist instance;
 
-    public bool room1Complete = false;
-    public bool room2AComplete = false;
-    public bool room2BComplete = false;
+    public bool access2A = false;
+    public bool access2B = false;
     
     private void Awake()
     {

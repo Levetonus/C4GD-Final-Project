@@ -9,13 +9,18 @@ public class GameManager : MonoBehaviour
     public bool gameEvent = false;
     public GameObject lightO;
     public GameObject key1;
+    public GameObject key2;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0 && !DataPersist.instance.room1Complete)
+        if(SceneManager.GetActiveScene().buildIndex == 0 && !DataPersist.instance.access2A)
         {
             key1.SetActive(true);
+        }
+        if (SceneManager.GetActiveScene().buildIndex == 0 && !DataPersist.instance.access2B)
+        {
+            key2.SetActive(true);
         }
     }
 
