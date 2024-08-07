@@ -134,15 +134,14 @@ public class PickupTest : MonoBehaviour
             }
             else if (gameObject.CompareTag("Keyhole2"))
             {
-                if (hasKey2 && inventory[equipped].GetComponent<Image>().sprite == images[0])
+                if (hasKey2 && inventory[equipped].GetComponent<Image>().sprite == images[1])
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
                     DataPersist.instance.access2B = true;
                 }
                 if (DataPersist.instance.access2B)
                 {
-                    //SceneManager.LoadScene(2);
-                    print("ROOM 2B");
+                    SceneManager.LoadScene(2);
                 }
             }
             else if (gameObject.CompareTag("Back"))

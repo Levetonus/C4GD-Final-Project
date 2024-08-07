@@ -1283,7 +1283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b5b3d9c2c022024d8de9c16f888481e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   access2A: 0
   access2B: 0
 --- !u!1 &663090008
@@ -4100,7 +4099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &1767495880380373266
 MeshFilter:
   m_ObjectHideFlags: 0
