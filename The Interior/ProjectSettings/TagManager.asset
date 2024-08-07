@@ -9,6 +9,9 @@ TagManager:
   - Key2
   - Keyhole2
   - Back
+  - SquareHole
+  - TriHole
+  - CircleHole
   layers:
   - Default
   - TransparentFX
