@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static PlayerMovement instance;
+
     public CharacterController controller;
     public float speed = 5f;
     public float gravity = -9.81f;
@@ -17,46 +19,52 @@ public class PlayerMovement : MonoBehaviour
     public AudioSource source;
     public bool audioPlaying = false;
 
+    public bool active = true;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance = this;
     }
 
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        if (isGrounded && velocity.y < 0)
+        if (active)
         {
-            velocity.y = -2f;
-        }
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        if((x != 0 || z != 0) && isGrounded)
-        {
-            if(!audioPlaying)
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+            if (isGrounded && velocity.y < 0)
             {
-                audioPlaying = true;
-                source.Play();
+                velocity.y = -2f;
             }
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+
+            if ((x != 0 || z != 0) && isGrounded)
+            {
+                if (!audioPlaying)
+                {
+                    audioPlaying = true;
+                    source.Play();
+                }
+            }
+            else
+            {
+                audioPlaying = false;
+                source.Stop();
+            }
+
+            Vector3 move = transform.right * x + transform.forward * z;
+
+            controller.Move(move * speed * Time.deltaTime);
+
+            if (Input.GetButtonDown("Jump") && isGrounded)
+            {
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            }
+
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
         }
-        else
-        {
-            audioPlaying = false;
-            source.Stop();
-        }
-
-        Vector3 move = transform.right * x + transform.forward * z;
-
-        controller.Move(move*speed*Time.deltaTime);
-
-        if (Input.GetButtonDown("Jump") && isGrounded) {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f*gravity);
-        }
-
-        velocity.y += gravity *Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
     }
 }

@@ -76,11 +76,11 @@ public class PickupTest : MonoBehaviour
                 if (hasKey1 && inventory[equipped].GetComponent<Image>().sprite == images[0])
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
-                    DataPersist.instance.access2A = true;
+                    GameManager.instance.access2A = true;
                 }
-                if (DataPersist.instance.access2A)
+                if (GameManager.instance.access2A)
                 {
-                    SceneManager.LoadScene(1);
+                    RoomSwitch.instance.ToRoom2A();
                 }
             }
             else if (gameObject.CompareTag("Keyhole2"))
@@ -88,11 +88,11 @@ public class PickupTest : MonoBehaviour
                 if (hasKey2 && inventory[equipped].GetComponent<Image>().sprite == images[1])
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
-                    DataPersist.instance.access2B = true;
+                    GameManager.instance.access2B = true;
                 }
-                if (DataPersist.instance.access2B)
+                if (GameManager.instance.access2B)
                 {
-                    SceneManager.LoadScene(2);
+                    RoomSwitch.instance.ToRoom2B();
                 }
             }
             else if (gameObject.CompareTag("SquareHole"))
@@ -100,34 +100,34 @@ public class PickupTest : MonoBehaviour
                 if (hasSquare && inventory[equipped].GetComponent<Image>().sprite == images[2])
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
-                    DataPersist.instance.squareDone = true;
+                    GameManager.instance.squareDone = true;
                     Destroy(gameObject);
                 }
-                DataPersist.instance.Check3Done();
+                GameManager.instance.Check3Done();
             }
             else if (gameObject.CompareTag("CircleHole"))
             {
                 if (hasCircle && inventory[equipped].GetComponent<Image>().sprite == images[3])
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
-                    DataPersist.instance.circleDone = true;
+                    GameManager.instance.circleDone = true;
                     Destroy(gameObject);
                 }
-                DataPersist.instance.Check3Done();
+                GameManager.instance.Check3Done();
             }
             else if (gameObject.CompareTag("TriHole"))
             {
                 if (hasTriangle && inventory[equipped].GetComponent<Image>().sprite == images[4])
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
-                    DataPersist.instance.triDone = true;
+                    GameManager.instance.triDone = true;
                     Destroy(gameObject);
                 }
-                DataPersist.instance.Check3Done();
+                GameManager.instance.Check3Done();
             }
             else if (gameObject.CompareTag("Back"))
             {
-                SceneManager.LoadScene(0);
+                RoomSwitch.instance.ToRoom1();
             }
         }
     }
