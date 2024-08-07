@@ -66,7 +66,7 @@ public class AudioManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
 
-        if(Random.Range(0f, 1f) < 0.4)
+        if(Random.Range(0f, 1f) < 0.1)
         {
             person = true;
             source2.clip = knocking;

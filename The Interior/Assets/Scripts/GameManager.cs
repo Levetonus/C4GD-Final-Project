@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     {
         if(runChance)
         {
-            if(Random.Range(0f, 1f) < 1)
+            if(Random.Range(0f, 1f) < 0.2f)
             {
                 runChance = false;
                 gameEvent = true;
