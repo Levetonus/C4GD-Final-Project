@@ -11,5 +11,6 @@ public class FileScript : MonoBehaviour
     {
         bKey.SetActive(true);
         source.Play();
+        print("mousedown");
     }
 }
