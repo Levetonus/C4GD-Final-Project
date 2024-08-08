@@ -5,23 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
+    public bool access2A = false;
+    public bool access2B = false;
+
+    public bool squareDone = false;
+    public bool circleDone = false;
+    public bool triDone = false;
+
     private bool runChance = true;
     public bool gameEvent = false;
     public GameObject lightO;
     public GameObject key1;
     public GameObject key2;
+    public GameObject square;
 
-    // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0 && !DataPersist.instance.access2A)
-        {
-            key1.SetActive(true);
-        }
-        if (SceneManager.GetActiveScene().buildIndex == 0 && !DataPersist.instance.access2B)
-        {
-            key2.SetActive(true);
-        }
+        instance = this;
     }
 
     // Update is called once per frame
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
     {
         if(runChance)
         {
-            if(Random.Range(0f, 1f) < 0.2f)
+            if(Random.Range(0f, 1f) < 0f) // reset to 0.2f
             {
                 runChance = false;
                 gameEvent = true;
@@ -47,5 +49,13 @@ public class GameManager : MonoBehaviour
     IEnumerator ChanceCooldown()
     {
         yield return new WaitForSeconds(30f);
+    }
+
+    public void Check3Done()
+    {
+        if(squareDone && circleDone && triDone)
+        {
+            print("done");
+        }
     }
 }
