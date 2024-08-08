@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject key1;
     public GameObject key2;
     public GameObject square;
+    
+    public GameObject computerScreen;
 
     public GameObject instructions;
 
@@ -30,6 +32,12 @@ public class GameManager : MonoBehaviour
 
         instructions.SetActive(true);
         StartCoroutine(InstrCooldown());
+    }
+    
+    public void closeScreen()
+    {
+        computerScreen.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private IEnumerator InstrCooldown()
