@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.1341472, b: 0.121078566, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4879,7 +4879,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e0c35072658e5e94f95854acb61cbe2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6633303
+      value: -2.86
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e0c35072658e5e94f95854acb61cbe2d,
         type: 3}
@@ -4889,7 +4889,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e0c35072658e5e94f95854acb61cbe2d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3700006
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e0c35072658e5e94f95854acb61cbe2d,
         type: 3}
@@ -4990,6 +4990,7 @@ MonoBehaviour:
   cam: {fileID: 902756553}
   hasKey1: 0
   hasKey2: 0
+  hasKeyB: 0
   hasSquare: 0
   hasTriangle: 0
   hasCircle: 0
@@ -8561,7 +8562,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -6629797300637803691, guid: 0bcfd17621b4697429df7191a8b94949, type: 3}
-  - {fileID: -2813467912831258332, guid: 0bcfd17621b4697429df7191a8b94949, type: 3}
+  - {fileID: 2100000, guid: d6eafaa4456984229afdcf8f41ef7b74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8872,7 +8873,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e0c35072658e5e94f95854acb61cbe2d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.6633298
+      value: -2.86
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e0c35072658e5e94f95854acb61cbe2d,
         type: 3}
@@ -8882,7 +8883,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e0c35072658e5e94f95854acb61cbe2d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.110001
+      value: 3.53
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e0c35072658e5e94f95854acb61cbe2d,
         type: 3}
@@ -9166,7 +9167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1748104770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10391,7 +10392,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -6629797300637803691, guid: 0bcfd17621b4697429df7191a8b94949, type: 3}
-  - {fileID: -2813467912831258332, guid: 0bcfd17621b4697429df7191a8b94949, type: 3}
+  - {fileID: 2100000, guid: e9c0de3ce3a954602ab4132e64beb03b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
