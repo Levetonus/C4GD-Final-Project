@@ -7,6 +7,10 @@ public class RoomSwitch : MonoBehaviour
 {
     public static RoomSwitch instance;
 
+    public GameObject player;
+    public GameObject playerBack;
+    public GameObject playerFront;
+
     public GameObject r1spawn;
     public GameObject r2Aspawn;
 
@@ -17,20 +21,33 @@ public class RoomSwitch : MonoBehaviour
 
     private IEnumerator SwitchCooldown(Vector3 tp)
     {
+        PlayerMovement.instance.active = false;
+        player.GetComponent<CharacterController>().enabled = false;
+
         yield return new WaitForSeconds(0.5f);
-        transform.position = tp;
+
+        Vector3 dist = tp - transform.position;
+
+        if(dist.z < 0)
+        {
+            player.transform.position = playerFront.transform.position;
+        }
+        else
+        {
+            player.transform.position = playerBack.transform.position;
+        }
+        transform.Translate(dist);
+        player.GetComponent<CharacterController>().enabled = true;
         PlayerMovement.instance.active = true;
     }
 
     public void ToRoom1()
     {
-        PlayerMovement.instance.active = false;
         StartCoroutine(SwitchCooldown(r1spawn.transform.position));
     }
 
     public void ToRoom2A()
     {
-        PlayerMovement.instance.active = false;
         StartCoroutine(SwitchCooldown(r2Aspawn.transform.position));
     }
 
