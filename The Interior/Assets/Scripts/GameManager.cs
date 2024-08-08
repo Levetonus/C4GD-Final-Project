@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator InstrCooldown()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         instructions.SetActive(false);
     }
 
