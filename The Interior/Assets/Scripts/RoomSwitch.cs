@@ -16,6 +16,8 @@ public class RoomSwitch : MonoBehaviour
     public GameObject r2B_spawn;
     public GameObject r3_spawn;
 
+    public GameObject audio3;
+
     private void Start()
     {
         instance = this;
@@ -61,5 +63,6 @@ public class RoomSwitch : MonoBehaviour
     public void ToRoom3()
     {
         StartCoroutine(SwitchCooldown(r3_spawn.transform.position));
+        audio3.GetComponent<AudioSource>().Play();
     }
 }
