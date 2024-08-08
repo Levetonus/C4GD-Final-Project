@@ -13,6 +13,7 @@ public class RoomSwitch : MonoBehaviour
 
     public GameObject r1spawn;
     public GameObject r2Aspawn;
+    public GameObject r2Bspawn;
 
     private void Start()
     {
@@ -53,6 +54,6 @@ public class RoomSwitch : MonoBehaviour
 
     public void ToRoom2B()
     {
-
+        StartCoroutine(SwitchCooldown(r2Bspawn.transform.position));
     }
 }
