@@ -13,6 +13,8 @@ TagManager:
   - TriHole
   - CircleHole
   - Square
+  - Circle
+  - Triangle
   layers:
   - Default
   - TransparentFX
