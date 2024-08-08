@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.SceneManagement;
@@ -26,6 +27,9 @@ public class PickupTest : MonoBehaviour
     public UnityEngine.Sprite defaultImage;
     public Color defaultColor;
 
+    public GameObject requirement;
+    public GameObject properties;
+
     void Start()
     {
         defaultImage = inventory[0].GetComponent<Image>().sprite;
@@ -50,26 +54,41 @@ public class PickupTest : MonoBehaviour
             {
                 hasKey1 = true;
                 DealWithObject(images[0], current, gameObject);
+                requirement.GetComponent<TMP_Text>().text = "Picked up Key1.";
+                requirement.SetActive(true);
+                StartCoroutine(reqCooldown());
             }
             else if (gameObject.CompareTag("Key2"))
             {
                 hasKey2 = true;
                 DealWithObject(images[1], current, gameObject);
+                requirement.GetComponent<TMP_Text>().text = "Picked up Key2.";
+                requirement.SetActive(true);
+                StartCoroutine(reqCooldown());
             }
             else if (gameObject.CompareTag("Square"))
             {
                 hasSquare = true;
                 DealWithObject(images[2], current, gameObject);
+                requirement.GetComponent<TMP_Text>().text = "Picked up cube.";
+                requirement.SetActive(true);
+                StartCoroutine(reqCooldown());
             }
             else if (gameObject.CompareTag("Circle"))
             {
                 hasCircle = true;
                 DealWithObject(images[3], current, gameObject);
+                requirement.GetComponent<TMP_Text>().text = "Picked up cylinder.";
+                requirement.SetActive(true);
+                StartCoroutine(reqCooldown());
             }
             else if (gameObject.CompareTag("Triangle"))
             {
                 hasTriangle = true;
                 DealWithObject(images[4], current, gameObject);
+                requirement.GetComponent<TMP_Text>().text = "Picked up triangular prism.";
+                requirement.SetActive(true);
+                StartCoroutine(reqCooldown());
             }
             else if (gameObject.CompareTag("Keyhole1"))
             {
@@ -77,7 +96,17 @@ public class PickupTest : MonoBehaviour
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
                     GameManager.instance.access2A = true;
+                    requirement.GetComponent<TMP_Text>().text = "Room 2A unlocked.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
                 }
+                else
+                {
+                    requirement.GetComponent<TMP_Text>().text = "You need Key1.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
+                }
+
                 if (GameManager.instance.access2A)
                 {
                     RoomSwitch.instance.ToRoom2A();
@@ -89,7 +118,17 @@ public class PickupTest : MonoBehaviour
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
                     GameManager.instance.access2B = true;
+                    requirement.GetComponent<TMP_Text>().text = "Room 2B unlocked.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
                 }
+                else
+                {
+                    requirement.GetComponent<TMP_Text>().text = "You need Key2.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
+                }
+
                 if (GameManager.instance.access2B)
                 {
                     RoomSwitch.instance.ToRoom2B();
@@ -102,7 +141,17 @@ public class PickupTest : MonoBehaviour
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
                     GameManager.instance.squareDone = true;
                     Destroy(gameObject);
+                    requirement.GetComponent<TMP_Text>().text = "Cube inserted.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
                 }
+                else
+                {
+                    requirement.GetComponent<TMP_Text>().text = "You need a cube.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
+                }
+
                 GameManager.instance.Check3Done();
             }
             else if (gameObject.CompareTag("CircleHole"))
@@ -112,7 +161,17 @@ public class PickupTest : MonoBehaviour
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
                     GameManager.instance.circleDone = true;
                     Destroy(gameObject);
+                    requirement.GetComponent<TMP_Text>().text = "Cylinder inserted.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
                 }
+                else
+                {
+                    requirement.GetComponent<TMP_Text>().text = "You need a cylinder.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
+                }
+
                 GameManager.instance.Check3Done();
             }
             else if (gameObject.CompareTag("TriHole"))
@@ -122,7 +181,17 @@ public class PickupTest : MonoBehaviour
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
                     GameManager.instance.triDone = true;
                     Destroy(gameObject);
+                    requirement.GetComponent<TMP_Text>().text = "Triangular prism inserted.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
                 }
+                else
+                {
+                    requirement.GetComponent<TMP_Text>().text = "You need a triangular prism.";
+                    requirement.SetActive(true);
+                    StartCoroutine(reqCooldown());
+                }
+
                 GameManager.instance.Check3Done();
             }
             else if (gameObject.CompareTag("Back"))
@@ -132,7 +201,13 @@ public class PickupTest : MonoBehaviour
         }
     }
 
-    void EquipMechanics()
+    private IEnumerator reqCooldown()
+    {
+        yield return new WaitForSeconds(3f);
+        requirement.SetActive(false);
+    }
+
+    private void EquipMechanics()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -168,7 +243,7 @@ public class PickupTest : MonoBehaviour
         }
     }
 
-    void DealWithObject(UnityEngine.Sprite replacement, Image current, GameObject gameObject)
+    private void DealWithObject(UnityEngine.Sprite replacement, Image current, GameObject gameObject)
     {
         if (current.sprite == defaultImage)
         {
@@ -189,7 +264,7 @@ public class PickupTest : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         Vector3 fwd = cam.transform.TransformDirection(Vector3.forward);
 
@@ -198,12 +273,78 @@ public class PickupTest : MonoBehaviour
             Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
             selected.SetActive(true);
             unselected.SetActive(false);
+            ShowProperties();
         }
         else
         {
             Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * 1000, Color.white);
             selected.SetActive(false);
             unselected.SetActive(true);
+            properties.SetActive(false);
+        }
+    }
+
+    private void ShowProperties()
+    {
+        if(hit.collider != null)
+        {
+            GameObject gameObject = hit.collider.gameObject;
+
+            if (gameObject.CompareTag("Key1"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Key1";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("Key2"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Key2";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("Square"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Cube";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("Circle"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Cylinder";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("Triangle"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Triangular Prism";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("Keyhole1"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Room 2A Keyhole";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("Keyhole2"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Room 2B Keyhole";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("SquareHole"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Room 3 Square Hole";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("CircleHole"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Room 3 Circle Hole";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("TriHole"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Room 3 Triangle Hole";
+                properties.SetActive(true);
+            }
+            else if (gameObject.CompareTag("Back"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Back to Room 1";
+                properties.SetActive(true);
+            }
         }
     }
 }

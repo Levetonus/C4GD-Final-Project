@@ -56,4 +56,9 @@ public class RoomSwitch : MonoBehaviour
     {
         StartCoroutine(SwitchCooldown(r2Bspawn.transform.position));
     }
+
+    public void ToRoom3()
+    {
+
+    }
 }

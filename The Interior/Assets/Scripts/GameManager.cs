@@ -9,21 +9,33 @@ public class GameManager : MonoBehaviour
 
     public bool access2A = false;
     public bool access2B = false;
+    public bool access3 = false;
 
     public bool squareDone = false;
     public bool circleDone = false;
     public bool triDone = false;
 
     private bool runChance = true;
-    public bool gameEvent = false;
+    public bool lightsEvent = false;
     public GameObject lightO;
     public GameObject key1;
     public GameObject key2;
     public GameObject square;
 
+    public GameObject instructions;
+
     public void Start()
     {
         instance = this;
+
+        instructions.SetActive(true);
+        StartCoroutine(InstrCooldown());
+    }
+
+    private IEnumerator InstrCooldown()
+    {
+        yield return new WaitForSeconds(5f);
+        instructions.SetActive(false);
     }
 
     // Update is called once per frame
@@ -31,10 +43,10 @@ public class GameManager : MonoBehaviour
     {
         if(runChance)
         {
-            if(Random.Range(0f, 1f) < 0f) // reset to 0.2f
+            if(Random.Range(0f, 1f) < 0f)
             {
                 runChance = false;
-                gameEvent = true;
+                lightsEvent = true;
                 lightO.SetActive(false);
                 AudioManager.instance.LightsOff();
             }
@@ -55,7 +67,7 @@ public class GameManager : MonoBehaviour
     {
         if(squareDone && circleDone && triDone)
         {
-            print("done");
+            access3 = true;
         }
     }
 }
