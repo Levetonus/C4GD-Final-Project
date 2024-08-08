@@ -207,6 +207,10 @@ public class PickupTest : MonoBehaviour
             {
                 RoomSwitch.instance.ToRoom1();
             }
+            else if (gameObject.CompareTag("FinalKeyhole"))
+            {
+                GameManager.instance.EndGame();
+            }
         }
     }
 

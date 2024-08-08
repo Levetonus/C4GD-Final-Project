@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject lightO;
     
     public GameObject computerScreen;
-
     public GameObject instructions;
+    public GameObject gameOver;
 
     public void Start()
     {
@@ -79,5 +79,17 @@ public class GameManager : MonoBehaviour
         {
             RoomSwitch.instance.ToRoom3();
         }
+    }
+
+    public void EndGame()
+    {
+        StartCoroutine(EndCooldown());
+    }
+
+    private IEnumerator EndCooldown()
+    {
+        gameOver.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
