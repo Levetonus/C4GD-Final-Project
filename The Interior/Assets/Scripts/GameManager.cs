@@ -18,9 +18,6 @@ public class GameManager : MonoBehaviour
     private bool runChance = true;
     public bool lightsEvent = false;
     public GameObject lightO;
-    public GameObject key1;
-    public GameObject key2;
-    public GameObject square;
     
     public GameObject computerScreen;
 
