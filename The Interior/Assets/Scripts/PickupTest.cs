@@ -340,6 +340,11 @@ public class PickupTest : MonoBehaviour
                 properties.GetComponent<TMP_Text>().text = "Room 3 Triangle Hole";
                 properties.SetActive(true);
             }
+            else if (gameObject.CompareTag("Computer"))
+            {
+                properties.GetComponent<TMP_Text>().text = "Computer";
+                properties.SetActive(true);
+            }
             else if (gameObject.CompareTag("Back"))
             {
                 properties.GetComponent<TMP_Text>().text = "Back to Room 1";
