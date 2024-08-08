@@ -11,9 +11,10 @@ public class RoomSwitch : MonoBehaviour
     public GameObject playerBack;
     public GameObject playerFront;
 
-    public GameObject r1spawn;
-    public GameObject r2Aspawn;
-    public GameObject r2Bspawn;
+    public GameObject r1_spawn;
+    public GameObject r2A_spawn;
+    public GameObject r2B_spawn;
+    public GameObject r3_spawn;
 
     private void Start()
     {
@@ -44,21 +45,21 @@ public class RoomSwitch : MonoBehaviour
 
     public void ToRoom1()
     {
-        StartCoroutine(SwitchCooldown(r1spawn.transform.position));
+        StartCoroutine(SwitchCooldown(r1_spawn.transform.position));
     }
 
     public void ToRoom2A()
     {
-        StartCoroutine(SwitchCooldown(r2Aspawn.transform.position));
+        StartCoroutine(SwitchCooldown(r2A_spawn.transform.position));
     }
 
     public void ToRoom2B()
     {
-        StartCoroutine(SwitchCooldown(r2Bspawn.transform.position));
+        StartCoroutine(SwitchCooldown(r2B_spawn.transform.position));
     }
 
     public void ToRoom3()
     {
-
+        StartCoroutine(SwitchCooldown(r3_spawn.transform.position));
     }
 }

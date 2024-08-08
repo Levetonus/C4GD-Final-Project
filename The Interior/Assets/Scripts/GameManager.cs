@@ -77,5 +77,9 @@ public class GameManager : MonoBehaviour
         {
             access3 = true;
         }
+        if(access3)
+        {
+            RoomSwitch.instance.ToRoom3();
+        }
     }
 }
