@@ -15,6 +15,7 @@ TagManager:
   - Square
   - Circle
   - Triangle
+  - Computer
   layers:
   - Default
   - TransparentFX
