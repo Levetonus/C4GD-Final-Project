@@ -20,8 +20,12 @@ public class GameManager : MonoBehaviour
     public GameObject lightO;
     
     public GameObject computerScreen;
+    public GameObject computerScreen2;
     public GameObject instructions;
     public GameObject gameOver;
+
+    private bool gameOverYet = false;
+    public AudioSource morseCode;
 
     public void Start()
     {
@@ -36,6 +40,12 @@ public class GameManager : MonoBehaviour
         MouseLook.instance.active = true;
         Cursor.lockState = CursorLockMode.Locked;
         computerScreen.SetActive(false);
+    }
+    public void closeScreen2()
+    {
+        MouseLook.instance.active = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        computerScreen2.SetActive(false);
     }
 
     private IEnumerator InstrCooldown()
@@ -78,6 +88,10 @@ public class GameManager : MonoBehaviour
         if(access3)
         {
             RoomSwitch.instance.ToRoom3();
+            while (gameOverYet == false)
+            {
+                morseCode.Play();
+            }
         }
     }
 
@@ -89,6 +103,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator EndCooldown()
     {
         gameOver.SetActive(true);
+        gameOverYet = true;
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

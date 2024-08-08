@@ -18,6 +18,9 @@ TagManager:
   - Computer
   - FinalKeyhole
   - KeyB
+  - 3code
+  - 2bcode
+  - Computer2
   layers:
   - Default
   - TransparentFX
