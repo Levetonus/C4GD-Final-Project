@@ -16,6 +16,7 @@ TagManager:
   - Circle
   - Triangle
   - Computer
+  - FinalKeyhole
   layers:
   - Default
   - TransparentFX
