@@ -36,8 +36,9 @@ public class GameManager : MonoBehaviour
     
     public void closeScreen()
     {
-        computerScreen.SetActive(false);
+        MouseLook.instance.active = true;
         Cursor.lockState = CursorLockMode.Locked;
+        computerScreen.SetActive(false);
     }
 
     private IEnumerator InstrCooldown()

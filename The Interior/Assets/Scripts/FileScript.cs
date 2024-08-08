@@ -12,5 +12,7 @@ public class FileScript : MonoBehaviour
         bKey.SetActive(true);
         source.Play();
         print("mousedown");
+        GameManager.instance.closeScreen();
+        RoomSwitch.instance.ToRoom3();
     }
 }
