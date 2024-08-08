@@ -11,4 +11,10 @@ public class ComputerScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         computerScreen.SetActive(true);
     }
+
+    public void ExitScreen()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        computerScreen.SetActive(false);
+    }
 }

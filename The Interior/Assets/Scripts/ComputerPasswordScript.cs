@@ -6,7 +6,7 @@ using TMPro;
 public class ComputerPasswordScript : MonoBehaviour
 {
     private string inputText;
-    private GameObject reactionGroup;
+    public GameObject reactionGroup;
     private string correctAnswer = "UNITY";
     public GameObject passwordText;
 
