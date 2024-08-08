@@ -17,6 +17,7 @@ public class PickupTest : MonoBehaviour
     public RaycastHit hit;
     public bool hasKey1 = false;
     public bool hasKey2 = false;
+    public bool hasKeyB = false;
     public bool hasSquare = false;
     public bool hasTriangle = false;
     public bool hasCircle = false;
@@ -63,6 +64,14 @@ public class PickupTest : MonoBehaviour
                 hasKey2 = true;
                 DealWithObject(images[1], current, gameObject);
                 requirement.GetComponent<TMP_Text>().text = "Picked up Key2.";
+                requirement.SetActive(true);
+                StartCoroutine(reqCooldown());
+            }
+            else if (gameObject.CompareTag("KeyB"))
+            {
+                hasKeyB = true;
+                DealWithObject(images[5], current, gameObject);
+                requirement.GetComponent<TMP_Text>().text = "Picked up Key.";
                 requirement.SetActive(true);
                 StartCoroutine(reqCooldown());
             }

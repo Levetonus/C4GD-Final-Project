@@ -17,6 +17,7 @@ TagManager:
   - Triangle
   - Computer
   - FinalKeyhole
+  - KeyB
   layers:
   - Default
   - TransparentFX
