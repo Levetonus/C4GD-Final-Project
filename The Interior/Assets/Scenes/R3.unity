@@ -2023,6 +2023,7 @@ MonoBehaviour:
   cam: {fileID: 2252775}
   hasKey1: 0
   hasKey2: 0
+  hasKeyB: 0
   hasSquare: 0
   hasTriangle: 0
   hasCircle: 0
@@ -5316,8 +5317,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6970220849347310641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0628287, y: 4.326, z: -4.28}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0.0628287, y: 4.19, z: -4.28}
+  m_LocalScale: {x: 0.294405, y: 0.294405, z: 0.294405}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6881857367186830830}
