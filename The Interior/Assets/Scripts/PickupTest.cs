@@ -100,7 +100,7 @@ public class PickupTest : MonoBehaviour
                     requirement.SetActive(true);
                     StartCoroutine(reqCooldown());
                 }
-                else
+                else if (!hasKey1)
                 {
                     requirement.GetComponent<TMP_Text>().text = "You need Key1.";
                     requirement.SetActive(true);
@@ -122,7 +122,7 @@ public class PickupTest : MonoBehaviour
                     requirement.SetActive(true);
                     StartCoroutine(reqCooldown());
                 }
-                else
+                else if (!hasKey2)
                 {
                     requirement.GetComponent<TMP_Text>().text = "You need Key2.";
                     requirement.SetActive(true);
