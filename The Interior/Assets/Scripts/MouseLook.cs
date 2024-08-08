@@ -25,7 +25,7 @@ public class MouseLook : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         if(active)
         {
@@ -37,7 +37,8 @@ public class MouseLook : MonoBehaviour
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            //transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
             playerBody.rotation = Quaternion.Euler(0f, yRotation, 0f);
         }
     }
