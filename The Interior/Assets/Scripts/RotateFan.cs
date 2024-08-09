@@ -12,8 +12,8 @@ public class RotateFan : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.Rotate(new Vector3(0,speed,0));
+        transform.Rotate(new Vector3(0,speed*3,0));
     }
 }
