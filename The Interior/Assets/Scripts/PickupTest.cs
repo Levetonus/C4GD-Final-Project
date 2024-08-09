@@ -330,27 +330,27 @@ public class PickupTest : MonoBehaviour
             }
             else if (gameObject.CompareTag("Keyhole1"))
             {
-                properties.GetComponent<TMP_Text>().text = "Next Room, Iteration A";
+                properties.GetComponent<TMP_Text>().text = "Next Room (Iteration A)";
                 properties.SetActive(true);
             }
             else if (gameObject.CompareTag("Keyhole2"))
             {
-                properties.GetComponent<TMP_Text>().text = "Next Room, Iteration B";
+                properties.GetComponent<TMP_Text>().text = "Next Room (Iteration B)";
                 properties.SetActive(true);
             }
             else if (gameObject.CompareTag("SquareHole"))
             {
-                properties.GetComponent<TMP_Text>().text = "Room 3 Square Hole";
+                properties.GetComponent<TMP_Text>().text = "Next Room (Threefold Lock)";
                 properties.SetActive(true);
             }
             else if (gameObject.CompareTag("CircleHole"))
             {
-                properties.GetComponent<TMP_Text>().text = "Room 3 Circle Hole";
+                properties.GetComponent<TMP_Text>().text = "Next Room (Threefold Lock)";
                 properties.SetActive(true);
             }
             else if (gameObject.CompareTag("TriHole"))
             {
-                properties.GetComponent<TMP_Text>().text = "Room 3 Triangle Hole";
+                properties.GetComponent<TMP_Text>().text = "Next Room (Threefold Lock)";
                 properties.SetActive(true);
             }
             else if (gameObject.CompareTag("Computer"))
