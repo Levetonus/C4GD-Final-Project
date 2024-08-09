@@ -9,6 +9,7 @@ public class ComputerPasswordScript : MonoBehaviour
     public GameObject reactionGroup;
     public string correctAnswer;
     public GameObject passwordText;
+    public GameObject computerScreen;
 
     void Start()
     {
@@ -39,6 +40,8 @@ public class ComputerPasswordScript : MonoBehaviour
         passwordText.SetActive(false);
         if(gameObject.CompareTag("3code")){
             GameManager.instance.EndGame();
+            computerScreen.SetActive(false);
         }
     }
+
 }
