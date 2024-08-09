@@ -109,7 +109,7 @@ public class PickupTest : MonoBehaviour
                     requirement.SetActive(true);
                     StartCoroutine(reqCooldown());
                 }
-                else if (!hasKey1)
+                else if (!GameManager.instance.access2A)
                 {
                     requirement.GetComponent<TMP_Text>().text = "You need Key1.";
                     requirement.SetActive(true);
@@ -131,7 +131,7 @@ public class PickupTest : MonoBehaviour
                     requirement.SetActive(true);
                     StartCoroutine(reqCooldown());
                 }
-                else if (!hasKey2)
+                else if (!GameManager.instance.access2B)
                 {
                     requirement.GetComponent<TMP_Text>().text = "You need Key2.";
                     requirement.SetActive(true);

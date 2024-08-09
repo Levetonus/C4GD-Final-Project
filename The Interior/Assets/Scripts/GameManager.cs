@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     
     public GameObject computerScreen;
     public GameObject computerScreen2;
-    public GameObject instructions;
     public GameObject gameOver;
 
     private bool gameOverYet = false;
@@ -30,9 +29,11 @@ public class GameManager : MonoBehaviour
     public void Start()
     {
         instance = this;
+    }
 
-        instructions.SetActive(true);
-        StartCoroutine(InstrCooldown());
+    public void BeginGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     
     public void closeScreen()
@@ -46,12 +47,6 @@ public class GameManager : MonoBehaviour
         MouseLook.instance.active = true;
         Cursor.lockState = CursorLockMode.Locked;
         computerScreen2.SetActive(false);
-    }
-
-    private IEnumerator InstrCooldown()
-    {
-        yield return new WaitForSeconds(10f);
-        instructions.SetActive(false);
     }
 
     // Update is called once per frame
