@@ -105,7 +105,7 @@ public class PickupTest : MonoBehaviour
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
                     GameManager.instance.access2A = true;
-                    requirement.GetComponent<TMP_Text>().text = "Room 2A unlocked.";
+                    requirement.GetComponent<TMP_Text>().text = "Unlocked.";
                     requirement.SetActive(true);
                     StartCoroutine(reqCooldown());
                 }
@@ -127,7 +127,7 @@ public class PickupTest : MonoBehaviour
                 {
                     inventory[equipped].GetComponent<Image>().sprite = defaultImage;
                     GameManager.instance.access2B = true;
-                    requirement.GetComponent<TMP_Text>().text = "Room 2B unlocked.";
+                    requirement.GetComponent<TMP_Text>().text = "Unlocked.";
                     requirement.SetActive(true);
                     StartCoroutine(reqCooldown());
                 }
@@ -330,12 +330,12 @@ public class PickupTest : MonoBehaviour
             }
             else if (gameObject.CompareTag("Keyhole1"))
             {
-                properties.GetComponent<TMP_Text>().text = "Room 2A Keyhole";
+                properties.GetComponent<TMP_Text>().text = "Next Room, Iteration A";
                 properties.SetActive(true);
             }
             else if (gameObject.CompareTag("Keyhole2"))
             {
-                properties.GetComponent<TMP_Text>().text = "Room 2B Keyhole";
+                properties.GetComponent<TMP_Text>().text = "Next Room, Iteration B";
                 properties.SetActive(true);
             }
             else if (gameObject.CompareTag("SquareHole"))
@@ -365,7 +365,7 @@ public class PickupTest : MonoBehaviour
             }
             else if (gameObject.CompareTag("Back"))
             {
-                properties.GetComponent<TMP_Text>().text = "Back to Room 1";
+                properties.GetComponent<TMP_Text>().text = "Previous Room";
                 properties.SetActive(true);
             }
         }
