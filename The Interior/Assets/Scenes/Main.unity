@@ -24243,6 +24243,11 @@ PrefabInstance:
       propertyPath: r2B_spawn
       value: 
       objectReference: {fileID: 582011421}
+    - target: {fileID: 6155568919072476229, guid: c8d8b284ad7927a4caaf649154fdbf21,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 110
+      objectReference: {fileID: 0}
     - target: {fileID: 6329972208333910158, guid: c8d8b284ad7927a4caaf649154fdbf21,
         type: 3}
       propertyPath: sensitivity
@@ -24252,6 +24257,11 @@ PrefabInstance:
         type: 3}
       propertyPath: cursorTexture
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019303854894125921, guid: c8d8b284ad7927a4caaf649154fdbf21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8783848651753447249, guid: c8d8b284ad7927a4caaf649154fdbf21,
         type: 3}
