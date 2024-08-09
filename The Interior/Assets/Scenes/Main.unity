@@ -2935,6 +2935,7 @@ MonoBehaviour:
   reactionGroup: {fileID: 154738541}
   correctAnswer: unity
   passwordText: {fileID: 892816905}
+  computerScreen: {fileID: 0}
 --- !u!114 &216865258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3282,7 +3283,7 @@ Transform:
   - {fileID: 1196725449}
   - {fileID: 1686298972}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &234343268
 GameObject:
@@ -3852,7 +3853,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &276107103
 PrefabInstance:
@@ -7395,7 +7396,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &587425936
 PrefabInstance:
@@ -7624,6 +7625,7 @@ MonoBehaviour:
   reactionGroup: {fileID: 1714523397}
   correctAnswer: 
   passwordText: {fileID: 1122760140}
+  computerScreen: {fileID: 468084029}
 --- !u!114 &594466848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8195,7 +8197,7 @@ Transform:
   - {fileID: 350214560}
   - {fileID: 9058759552661325716}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &642290250
 GameObject:
@@ -20655,7 +20657,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1872899215
 GameObject:
