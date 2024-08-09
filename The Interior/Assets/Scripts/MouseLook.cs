@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
-using UnityEditor;
 using UnityEngine;
 
 public class MouseLook : MonoBehaviour
@@ -11,7 +9,6 @@ public class MouseLook : MonoBehaviour
     public float sensitivity = 1500f;
     public Transform playerBody;
     float xRotation = 0f;
-    float yRotation = 0f;
     public Texture2D cursorTexture;
 
     public bool active = true;
@@ -21,25 +18,43 @@ public class MouseLook : MonoBehaviour
     {
         instance = this;
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto); 
+        if (cursorTexture != null)
+        {
+            Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(active)
+        if (active)
         {
-            float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-            float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-
-            yRotation += mouseX;
-
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-
-            transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            //transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
-            playerBody.rotation = Quaternion.Euler(0f, yRotation, 0f);
+            HandleMouseInput();
         }
+    }
+
+    void FixedUpdate()
+    {
+        if (active)
+        {
+            ApplyRotation();
+        }
+    }
+
+    void HandleMouseInput()
+    {
+        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.smoothDeltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.smoothDeltaTime;
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
+    }
+
+    void ApplyRotation()
+    {
+        // This function can be expanded if needed for more complex rotation logic
     }
 }
