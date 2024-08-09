@@ -22,8 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject computerScreen;
     public GameObject computerScreen2;
     public GameObject gameOver;
-
-    private bool gameOverYet = false;
+    
     public AudioSource morseCode;
 
     public void Start()
@@ -74,6 +73,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public IEnumerator RepeatCode()
+    {
+        yield return new WaitForSeconds(morseCode.clip.length + 3);
+        morseCode.Play();
+        StartCoroutine(RepeatCode());
+    }
+
     IEnumerator ChanceCooldown()
     {
         yield return new WaitForSeconds(30f);
@@ -88,22 +94,19 @@ public class GameManager : MonoBehaviour
         if(access3)
         {
             RoomSwitch.instance.ToRoom3();
-            while (gameOverYet == false)
-            {
-                morseCode.Play();
-            }
         }
     }
 
     public void EndGame()
     {
+        morseCode.Stop();
+        computerScreen2.SetActive(false);
         StartCoroutine(EndCooldown());
     }
 
     private IEnumerator EndCooldown()
     {
         gameOver.SetActive(true);
-        gameOverYet = true;
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
