@@ -3568,6 +3568,7 @@ MonoBehaviour:
   reactionGroup: {fileID: 987011200}
   correctAnswer: 
   passwordText: {fileID: 1922068632}
+  computerScreen: {fileID: 0}
 --- !u!114 &1611186994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4518,6 +4519,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 942576299913581954, guid: c8d8b284ad7927a4caaf649154fdbf21,
+        type: 3}
+      propertyPath: computerScreen2
+      value: 
+      objectReference: {fileID: 1106619071}
     - target: {fileID: 6573469258536571788, guid: c8d8b284ad7927a4caaf649154fdbf21,
         type: 3}
       propertyPath: sensitivity
@@ -4702,6 +4708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: r2B_spawn
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7019303854894125921, guid: c8d8b284ad7927a4caaf649154fdbf21,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d8b284ad7927a4caaf649154fdbf21, type: 3}

@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator RepeatCode()
     {
-        yield return new WaitForSeconds(morseCode.clip.length + 3);
+        yield return new WaitForSeconds(morseCode.clip.length + 5);
         morseCode.Play();
         StartCoroutine(RepeatCode());
     }
