@@ -2935,6 +2935,7 @@ MonoBehaviour:
   reactionGroup: {fileID: 154738541}
   correctAnswer: unity
   passwordText: {fileID: 892816905}
+  computerScreen: {fileID: 0}
 --- !u!114 &216865258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7623,6 +7624,7 @@ MonoBehaviour:
   reactionGroup: {fileID: 1714523397}
   correctAnswer: 
   passwordText: {fileID: 1122760140}
+  computerScreen: {fileID: 0}
 --- !u!114 &594466848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8902,6 +8904,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697249247}
   m_Mesh: {fileID: 6239881831769578202, guid: 97a4b74bf93ea4289abea0cf02752ef7, type: 3}
+--- !u!114 &702994876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 942576299913581954, guid: c8d8b284ad7927a4caaf649154fdbf21,
+    type: 3}
+  m_PrefabInstance: {fileID: 4207767707376754275}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89556991d56da964f9b8d21d14925f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &717117111
 GameObject:
   m_ObjectHideFlags: 0
@@ -14950,7 +14964,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 702994876}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: closeScreen2
         m_Mode: 1
